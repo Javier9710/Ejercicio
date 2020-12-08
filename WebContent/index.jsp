@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Consultorías ZAMBRANO</title>
+  <title>Abogados AyD</title>
   <meta >
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -19,7 +19,7 @@
             <div class="modal-content">
                 <div class="col-12 user-img">
                     <img src="carpetaplantilla/img/zam.png" />
-                    <h3>Consultorías Zambrano</h3>
+                    <h3>Abogados AyD</h3>
                 </div>
 
                 <form id="formLogin" class="col-12" action="AccesoControl" method="post">
@@ -30,7 +30,7 @@
                         <input type="password" class="form-control" placeholder="Contraseña" name="pass" required="Llena este campo"/>
                     </div>
                     <button type="submit" name="accion" value="ingreso" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i>  Ingresar </button>
-                    <div class="form-group"> <a href="WebApp/loginEmpleado.jsp" style=" text-decoration: none; " ><u>O inicie sesión como Empleado</u></a> </div>
+                    <div class="form-group"> <a href="WebApp/loginAbogado.jsp" style=" text-decoration: none; " ><u>O inicie sesión como Empleado</u></a> </div>
                 </form>
                 
                 

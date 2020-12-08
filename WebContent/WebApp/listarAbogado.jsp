@@ -185,7 +185,7 @@
        <div class="container-fluid" style="background-image: url(https://www.publicdomainpictures.net/pictures/280000/velka/gradient-yellow-to-blue-background.jpg); height: 100%;" ><br>
        <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Listado de Empleados</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Listado de Abogados</h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -195,7 +195,7 @@
           <div class="card-deck">
             <c:forEach var="p" items="${pD.listar1()}">
   <div class="card">
-    <img  src=<c:out value="${p.foto}"/> class="card-img-top" width="100" height="300" alt="Card image cap" >
+    <img  src="https://raw.githubusercontent.com/Javier9710/Ejercicio/master/img/<c:out value="${p.foto}"/>" class="card-img-top" width="100" height="300" alt="Card image cap" >
     
     <div class="card-body">
       <h5 class="card-title">Nombre: <c:out value="${p.persona.getNombre()}"/></h5>

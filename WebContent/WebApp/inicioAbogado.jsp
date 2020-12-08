@@ -117,27 +117,27 @@
         <div class="card shadow mb-4">
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary" style="font-size: 26px;">BIENVENIDO </h6> 
-              <h6 class="m-0 font-weight-bold text-primary">Listado de Servicios</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Listado de Casos</h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">
 
-                <jsp:useBean id="AD" class="Dao.ServicioDao" scope="request"></jsp:useBean>
+                <jsp:useBean id="AD" class="Dao.CasoDao" scope="request"></jsp:useBean>
 
                 <div class="card-deck">
                   <c:forEach var="d" items="${AD.listar1()}">
                   <div class="card border-primary mb-3" style="max-width: 18rem;">
-                      <div class="card-header" ><c:out value="${d.tipoServicio.nombre}"/></div>
+                      <div class="card-header" ><c:out value="${d.id}"/></div>
                       <div class="card-body">
-                        <h5 class="card-title"><c:out value="${d.getNombre()}"/></h5>
-                        <p class="card-text"><c:out value="${d.getId()}"/></p>
-                        <p class="card-text"><c:out value="${d.getPrecio()}"/></p>
-                        <p class="card-text"><c:out value="${d.getFecha()}"/></p>
-                        <p class="card-text"><b>Cliente:</b> <c:out value="${d.getCliente().getNombre()}"/></p>
+                        <h5 class="card-title"><c:out value="${d.importancia}"/></h5>
+                        <p class="card-text"><c:out value="${d.correo}"/></p>
+                        <p class="card-text"><c:out value="${d.fecha}"/></p>
+                        <p class="card-text"><c:out value="${d.cedulaC}"/></p>
+                        <p class="card-text"><b>Cliente:</b> <c:out value="${d.nombreC}"/></p>
 
              
               <form action="../AtenderControl" method="get">
-                       <input type="hidden" name="ids" value="${d.getId()}">
+                       <input type="hidden" name="ids" value="${d.id}">
                         <div class="form-group row">
                        <div class="col-sm-12">
                       <button type="submit" name="accion" value="atenderS" 

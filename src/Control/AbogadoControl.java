@@ -6,8 +6,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import Dao.AbogadoDao;
+import Dao.CasoDao;
 import Dao.PersonaDao;
 import Dto.Abogado;
 import Dto.Persona;
@@ -72,6 +74,30 @@ public class AbogadoControl extends HttpServlet {
         	response.sendRedirect("WebApp/listarAbogado.jsp");
 			break;
 			
+		case "eliminar":
+        	AbogadoDao aD1= new AbogadoDao();
+        	PersonaDao pD1 = new PersonaDao();
+			String id = request.getParameter("id");
+			aD1.eliminar(id);
+			pD1.eliminar(id);
+			response.sendRedirect("WebApp/listarAbogado.jsp");
+			break;
+			
+		case "ingreso":
+			Persona p1 = new Persona();
+			AbogadoDao pD3 = new AbogadoDao();
+			String cedula1 = request.getParameter("cedula");
+			String pass1 = request.getParameter("pass");
+			p1 = pD3.validar(cedula1, pass1);
+			CasoDao AD = new CasoDao();
+			
+			if(p1!=null) {
+				
+				HttpSession sesion = request.getSession();
+				sesion.setAttribute("abogado", p1);
+				response.sendRedirect("WebApp/inicioAbogado.jsp");
+			}
+			break;
 			
 
 		}
