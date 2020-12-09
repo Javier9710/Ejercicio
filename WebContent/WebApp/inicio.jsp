@@ -41,7 +41,7 @@
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="inicio.jsp">
         <div class="" >
-       <img alt="" src="">
+       <img alt="" src="https://raw.githubusercontent.com/Javier9710/Ejercicio/master/img/logo1.png">
           <i class="fas fa-file"></i>
         </div>
         <div class="sidebar-brand-text mx-3">Abogados AyD</div>
