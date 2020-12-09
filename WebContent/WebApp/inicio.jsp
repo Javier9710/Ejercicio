@@ -67,7 +67,7 @@
       </li>
       
       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
+   <!--  <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCliente" aria-expanded="true" aria-controls="collapseCliente">
           <i class="fas fa-fw fa-user"></i>
           <span>Cliente</span>
@@ -79,12 +79,8 @@
           </div>
         </div>
       </li>
+-->   
 
-
-
-     
-
-     
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
@@ -190,20 +186,20 @@
                 <div class="card-deck">
                   <c:forEach var="d" items="${AD.listar1()}">
                   <div class="card border-primary mb-3" style="max-width: 18rem;">
-                      <div class="card-header" ><c:out value="${d.id}"/></div>
+                      <div class="card-header" >Abogado: <c:out value="${d.abogado.persona.nombre}"/></div>
                       <div class="card-body">
-                        <h5 class="card-title"><c:out value="${d.importancia}"/></h5>
-                        <p class="card-text"><c:out value="${d.correoC}"/></p>
-                        <p class="card-text"><c:out value="${d.fecha}"/></p>
-                        <p class="card-text"><c:out value="${d.cedulaC}"/></p>
-                        <p class="card-text"><b>Cliente:</b> <c:out value="${d.nombreC}"/></p>
+                        <h5 class="card-title">Titulo Caso: <c:out value="${d.nombreCaso}"/></h5>
+                        <p class="card-text">Cliente: <c:out value="${d.nombreC}"/></p>
+                        <p class="card-text">Cedula: <c:out value="${d.cedulaC}"/></p>
+                        <p class="card-text">Tipo Caso: <c:out value="${d.tipoCaso}"/></p>
+                        <p class="card-text"><b>Descripcion: </b> <c:out value="${d.info}"/></p>
 
              
               <form action="../AtenderControl" method="get">
                        <input type="hidden" name="ids" value="${d.id}">
                         <div class="form-group row">
                        <div class="col-sm-12">
-                        <button type="submit" name="accion" value="historial" 
+                        <button type="submit" name="accion" value="historialA" 
                   class="btn btn-primary ">Ver Historial</button>
 
                 

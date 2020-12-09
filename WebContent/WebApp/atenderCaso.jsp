@@ -23,6 +23,12 @@
 
   <!-- Custom styles for this template-->
   <link href="../carpetaplantilla/css/sb-admin-2.min.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../static/alertifyjs/css/alertify.min.css" />
+ 
+<link rel="stylesheet" href="../static/alertifyjs/css/themes/default.min.css" />
+ 
+<script src="../static/alertifyjs/alertify.min.js"></script>
 
 </head>
 
@@ -242,6 +248,21 @@
   <script src="../carpetaplantilla/js/sb-admin-2.min.js"></script>
 
 </body>
+
+<c:set var="msg" value="${atenderC}"/>
+  
+    	<c:if test="${msg==1}">
+	
+	<script type="text/javascript">
+	
+	alertify.notify('Registro Exitoso', 'success', 5, function(){  console.log('dismissed'); });
+
+	</script>
+	<% session.setAttribute("atenderC", null); %>
+	 
+		
+	
+	</c:if>
 
 </html>
      

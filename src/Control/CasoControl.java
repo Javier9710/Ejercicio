@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import Dao.CasoDao;
 import Dto.Abogado;
@@ -82,7 +83,16 @@ public class CasoControl extends HttpServlet {
 			
 			cd.registrar(c);
 			
-			response.sendRedirect("WebApp/regCaso1.jsp");
+			if(c!=null) {
+				HttpSession sesion2 = request.getSession();
+				sesion2.setAttribute("registroC", 1);
+				//request.setAttribute("msg",1);
+				//getServletConfig().getServletContext().getRequestDispatcher("/WebApp/regCaso1.jsp").forward(request, response);
+				response.sendRedirect("WebApp/regCaso1.jsp");
+				//sesion1.invalidate();	
+			}
+			
+			
 
 			break;
 			

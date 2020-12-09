@@ -65,6 +65,8 @@ public class AtenderControl extends HttpServlet {
 			
 			ad.registrar(a);
 			
+			HttpSession sesion8 = request.getSession();
+			sesion8.setAttribute("atenderC", 1);
 			response.sendRedirect("WebApp/atenderCaso.jsp");
 			
 			break;
@@ -74,6 +76,16 @@ public class AtenderControl extends HttpServlet {
 			HttpSession sesion2 = request.getSession();
 			sesion2.setAttribute("var", var);
 			response.sendRedirect("WebApp/historialAtencion.jsp");
+			
+			break;
+			
+			
+		case "historialA":
+			var = Integer.parseInt(request.getParameter("ids"));
+			System.out.println("-----------------"+var);
+			HttpSession sesion3 = request.getSession();
+			sesion3.setAttribute("var1", var);
+			response.sendRedirect("WebApp/historial.jsp");
 			
 			break;
 			

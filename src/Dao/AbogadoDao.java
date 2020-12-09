@@ -26,13 +26,35 @@ public class AbogadoDao {
 	public Abogado validar(String cedula1, String pass1) {
 		Abogado a = new Abogado();
 		Persona p = new Persona();
-		 Query nativeQuery = em.createNativeQuery("SELECT p.cedula,a.foto,p.nombre,p.correo, a.especializacion,a.pass,a.estado FROM  Abogado a, Persona p "
+		 Query nativeQuery = em.createNativeQuery("SELECT Count(*), p.cedula,a.foto,p.nombre,p.correo, a.especializacion,a.pass,a.estado FROM  Abogado a, Persona p "
 		 		                                 + "WHERE p.cedula =? "
 		 		                                 + "and p.cedula=a.persona "
 		 		                                 + "and a.pass=?");
 	        nativeQuery.setParameter(1, cedula1);
 	        nativeQuery.setParameter(2, pass1);
-	        Object[] result = (Object[]) nativeQuery.getSingleResult();
+	        
+	
+	        	
+	        	Object[] result = (Object[]) nativeQuery.getSingleResult();
+	        	Integer dato = ((BigInteger) result[0]).intValue();
+	        	
+	        	if(dato!=0) {
+	        	
+		        p.setCedula((String) result[1]);
+		        p.setNombre((String) result[3]);
+		        p.setCorreo((String) result[4]);
+		        a.setEspecializacion((String) result[5]);
+		        //a.setFoto((String) result[5]);
+		        a.setPass((String) result[6]);
+		        a.setEstado((String) result[7]);
+		        a.setPersona(p);
+		        a.setFoto((String) result[2]);
+		        //a.setCorreo((String) result[2]);
+	        	}else {
+	        		a=null;
+	        	}
+	        
+	     /*   Object[] result = (Object[]) nativeQuery.getSingleResult();
 	        
 	        p.setCedula((String) result[0]);
 	        p.setNombre((String) result[2]);
@@ -46,7 +68,7 @@ public class AbogadoDao {
 	        //a.setCorreo((String) result[2]);
 	      
 
-	       
+	       */
 	
 		return a;
 	}

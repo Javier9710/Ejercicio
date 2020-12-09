@@ -42,23 +42,6 @@ public class AccesoControl extends HttpServlet {
 		String accion = request.getParameter("accion");
 		
 		switch (accion) {
-		case "ingreso1":
-			String cedula = request.getParameter("cedula");
-			String pass = request.getParameter("pass");
-			int p = pD.validar(cedula, pass);
-			if(p!=0) {
-				HttpSession sesion = request.getSession();
-				sesion.setAttribute("persona", p);
-				response.sendRedirect("WebApp/inicio.jsp");
-			}else {
-				response.sendRedirect("index.jsp");
-		
-				
-			}
-			
-			
-			
-			break;
 			
 		case "cerrar":
 			HttpSession session = request.getSession();
@@ -92,14 +75,10 @@ public class AccesoControl extends HttpServlet {
 				sesion.setAttribute("persona", p);
 				response.sendRedirect("WebApp/inicio.jsp");
 			}else {
-				//response.sendRedirect("index.jsp");
-				PrintWriter out = response.getWriter();
-			   out.println("<script type=\"text/javascript\">");
-			   out.println("alert('Usuario o Contraseña Incorrecta');");
-			   out.println("location='index.jsp';");
-			   out.println("</script>");
+				HttpSession sesion = request.getSession();
+				sesion.setAttribute("persona", 1);
+				response.sendRedirect("index.jsp");
 		
-				
 			}
 			
 			break;

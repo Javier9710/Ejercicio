@@ -64,8 +64,14 @@ public class AbogadoControl extends HttpServlet {
 			a.setEstado("LIBRE");
 			a.setFoto(nombreFoto);
 			ad.registrar(a);
+			if(a!=null) {
+				HttpSession sesion1 = request.getSession();
+				sesion1.setAttribute("registroA", 1);
+
+				response.sendRedirect("WebApp/regAbogado.jsp");
+				//sesion1.invalidate();	
+			}
 			
-			response.sendRedirect("WebApp/regAbogado.jsp");
 			break;
 			
 		case "listar":
@@ -84,14 +90,15 @@ public class AbogadoControl extends HttpServlet {
 			break;
 			
 		case "ingreso":
-			Persona p1 = new Persona();
+	
 			AbogadoDao pD3 = new AbogadoDao();
 			Abogado a1=new Abogado();
+			
 			String cedula1 = request.getParameter("cedula");
 			String pass1 = request.getParameter("pass");
 			a1= pD3.validar(cedula1, pass1);
 			System.out.print(".------ "+a1);
-			CasoDao AD = new CasoDao();
+			
 			
 			if(a1!=null) {
 				
@@ -99,6 +106,11 @@ public class AbogadoControl extends HttpServlet {
 				sesion.setAttribute("abogado", a1);
 				
 				response.sendRedirect("WebApp/inicioAbogado.jsp");
+			}else {
+				
+				HttpSession sesion3 = request.getSession();
+				sesion3.setAttribute("abogado", 1);
+				response.sendRedirect("WebApp/loginAbogado.jsp");
 			}
 			break;
 			
@@ -130,13 +142,16 @@ public class AbogadoControl extends HttpServlet {
 			pda.actualizar(pa);
 			ada.actualizar(aa);
 			
-			HttpSession sesion = request.getSession();
-			sesion.setAttribute("abogado", aa);
 			
+			if(aa!=null) {
+			HttpSession sesion5 = request.getSession();
+			sesion5.setAttribute("abogado", aa);
+			HttpSession sesion6 = request.getSession();
+			sesion6.setAttribute("abogadoA", 1);
 			response.sendRedirect("WebApp/misDatos.jsp");
 			
 			
-			
+			}
 			
 			break;
 			

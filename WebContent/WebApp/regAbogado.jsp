@@ -23,6 +23,12 @@
   <link href="../carpetaplantilla/css/sb-admin-2.min.css" rel="stylesheet">
   <link rel="shortcut icon" href="../carpetaplantilla/img/icon.png">
   <link rel="stylesheet" type="text/css" href="../carpetaplantilla/estilo/style.css">
+  
+   <link rel="stylesheet" href="../static/alertifyjs/css/alertify.min.css" />
+ 
+<link rel="stylesheet" href="../static/alertifyjs/css/themes/default.min.css" />
+ 
+<script src="../static/alertifyjs/alertify.min.js"></script>
 
 </head>
 
@@ -39,7 +45,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-file"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Abogados AyD</div>
+        <div class="sidebar-brand-text mx-3">ABOGADOS WEB</div>
       </a>
 
       <!-- Divider -->
@@ -62,7 +68,7 @@
         </div>
       </li>
       
-      <!-- Nav Item - Pages Collapse Menu -->
+      <!-- Nav Item - Pages Collapse Menu 
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCliente" aria-expanded="true" aria-controls="collapseCliente">
           <i class="fas fa-fw fa-user"></i>
@@ -75,21 +81,10 @@
           </div>
         </div>
       </li>
+      
+      -->
        <!-- Nav Item - Utilities Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-          <i class="fas fa-fw fa-file"></i>
-          <span>Servicio</span>
-        </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="regServicio.jsp">Registrar Servicio</a>
-            <a class="collapse-item" href="../ServicioControl?accion=listar">Listar Servicios</a>
-            
-          </div>
-        </div>
-      </li>
-     
+
 
      
 
@@ -276,7 +271,23 @@
   <!-- Custom scripts for all pages-->
   <script src="../carpetaplantilla/js/sb-admin-2.min.js"></script>
   <script src="../carpetaplantilla/js/file.js"></script>
+  
+  
 
 </body>
+<c:set var="msg" value="${registroA}"/>
+  
+    	<c:if test="${msg==1}">
+	
+	<script type="text/javascript">
+	
+	alertify.notify('Registro Exitoso', 'success', 5, function(){  console.log('dismissed'); });
+
+	</script>
+	<% session.setAttribute("registroA", null); %>
+	 
+		
+	
+	</c:if>
 
 </html>

@@ -1,9 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+    pageEncoding="ISO-8859-1"
+    %>
+    <%@ page import="javax.servlet.http.HttpSession" %>
+    <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+
+   
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
 
   <meta charset="utf-8">
@@ -12,19 +17,22 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Listar Servicios</title>
+  <title>Inicio</title>
 
   <!-- Custom fonts for this template-->
   <link href="../carpetaplantilla/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
   <link rel="shortcut icon" href="../carpetaplantilla/img/icon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
 
   <!-- Custom styles for this template-->
   <link href="../carpetaplantilla/css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
+
 <body id="page-top">
-<!-- Page Wrapper -->
+
+  <!-- Page Wrapper -->
   <div id="wrapper">
 
     <!-- Sidebar -->
@@ -35,7 +43,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-file"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Consultorias Zambrano</div>
+        <div class="sidebar-brand-text mx-3">ABOGADOS WEB</div>
       </a>
 
       <!-- Divider -->
@@ -48,16 +56,17 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-user"></i>
-          <span>Empleado</span>
+          <span>Abogados</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="regEmpleado.jsp">Registrar Empleado</a>
-            <a class="collapse-item" href="../EmpleadoControl?accion=listar">Listar Empleados</a>
+            <a class="collapse-item" href="regAbogado.jsp">Registrar Abogado</a>
+            <a class="collapse-item" href="../AbogadoControl?accion=listar">Listar Abogado</a>
           </div>
         </div>
       </li>
-      <!-- Nav Item - Pages Collapse Menu -->
+      
+      <!-- Nav Item - Pages Collapse Menu 
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCliente" aria-expanded="true" aria-controls="collapseCliente">
           <i class="fas fa-fw fa-user"></i>
@@ -70,21 +79,14 @@
           </div>
         </div>
       </li>
+      
+      -->
 
-      <!-- Nav Item - Utilities Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-          <i class="fas fa-fw fa-file"></i>
-          <span>Servicio</span>
-        </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="regServicio.jsp">Registrar Servicio</a>
-            <a class="collapse-item" href="../ServicioControl?accion=listar">Listar Servicios</a>
-            
-          </div>
-        </div>
-      </li>
+
+
+     
+
+     
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
@@ -95,7 +97,9 @@
       </div>
 
     </ul>
-    
+
+    <!-- End of Sidebar -->
+
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
 
@@ -154,7 +158,7 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
-                <img class="img-profile rounded-circle" src="https://toppng.com/uploads/preview/user-font-awesome-nuevo-usuario-icono-11563566658mjtfvilgcs.png" >
+                <img class="img-profile rounded-circle" src="https://www.serviciosayd.com/wp-content/uploads/2017/05/logo2-08.png" >
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -170,79 +174,48 @@
 
         </nav>
     </div>
-    
-    <div class="container-fluid" style="background-image: url(https://www.publicdomainpictures.net/pictures/280000/velka/gradient-yellow-to-blue-background.jpg); height: 100%;" ><br>
-       <div class="card shadow mb-4">
+
+ <div class="container-fluid" style="background-image: url(https://www.publicdomainpictures.net/pictures/280000/velka/gradient-yellow-to-blue-background.jpg); height: 100%;" ><br>
+        <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Listado de Servicios</h6>
+               
+              <h6 class="m-0 font-weight-bold text-primary">Historial de atenciones</h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">
-          
-          <jsp:useBean id="AD" class="Dao.ServicioDao" scope="request"></jsp:useBean>
-          
-          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-      <thead>
-        <tr>
-          
-          <th style="text-align: center" scope="col">Nombre</th>
-          <th style="text-align: center" scope="col">Inicio</th>
-          <th style="text-align: center" scope="col">Fin</th>
-          <th style="text-align: center" scope="col">Precio</th>
-          <th style="text-align: center" scope="col">Empleado</th>
-          <th style="text-align: center" scope="col">Cliente</th>
-          <th style="text-align: center" scope="col">Estado</th>
-      
-          <th style="text-align: center" scope="col">Acciones</th>
-        </tr>
-      </thead>
 
-      <tbody>
+                <jsp:useBean id="AD" class="Dao.AtencionDao" scope="request"></jsp:useBean>
+
+                <div class="card-deck">
+                  <c:forEach var="d" items="${AD.listar(var1)}">
+                  <div class="card border-primary mb-3" style="max-width: 18rem;">
+                      <div class="card-header" >Titulo: <c:out value="${d.titulo}"/></div>
+                      <div class="card-body">
+                        <p class="card-text">Hora: <c:out value="${d.hora}"/></p>
+                        <p class="card-text">Fecha: <c:out value="${d.fecha}"/></p>
+                        <h5 class="card-title">Descripcion: <c:out value="${d.descripcion}"/></h5>
 
 
+                     </div>
+                    </div>
 
-        <c:forEach var="s" items="${AD.listar1()}">
-
-          <tr>
-            
-          
-            <td style="text-align: center"><c:out value="${s.nombre}"/></td>
-            <td style="text-align: center"><c:out value="${s.fecha}"/></td>
-            <td style="text-align: center"><c:out value="${s.fechaFin}"/></td>
-            <td style="text-align: center"><c:out value="${s.precio}"/></td>
-            <td style="text-align: center" scope="col"><c:out value="${s.empleado.getPersona().getNombre()}" /></td>
-            <td style="text-align: center" scope="col"><c:out value="${s.cliente.getNombre()}" /></td>
-            <td style="text-align: center"><c:out value="${s.estado}"/></td>
-            
-
-            <td>
-          <form action="../ServicioControl" method="get">
-            <input type="hidden" name="id" value="${s.id}">
-            <div style="text-align: center" class="form-group row">
-              <div class="col-sm-12">
-                <button type="submit" name="accion" value="editar"
-                  class="btn btn-primary">Editar</button>
-                <button type="submit" name="accion" value="eliminar"
-                  class="btn btn-primary">Eliminar</button>
-              </div>
-            </div>
-          </form>
-        </td>
-          </tr>
-
-        </c:forEach>
-
-      </tbody>
-
-    </table>
-
-       </div>
+                    
+                </c:forEach>
+                </div>
       </div>
-    </div>
-      <!-- End of Main Content -->
-     <!-- Footer -->
-      <footer class="sticky-footer bg-white" style="position: absolute;
-  bottom: 0; width: 81%;">
+  </div>
+</div><br><br><br>
+<br><br><br>
+<br><br><br>
+<br><br><br>
+ <br>
+
+</div>
+
+ <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white" >
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
             <span>Copyright &copy; Your Website 2020</span>
@@ -274,7 +247,7 @@
 
   <!-- Custom scripts for all pages-->
   <script src="../carpetaplantilla/js/sb-admin-2.min.js"></script>
-     
-      
+
 </body>
+
 </html>

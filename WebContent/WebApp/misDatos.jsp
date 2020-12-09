@@ -14,7 +14,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Mis Datos</title>
+  <title>Registro Caso</title>
 
   <!-- Custom fonts for this template-->
   <link href="../carpetaplantilla/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -23,6 +23,12 @@
 
   <!-- Custom styles for this template-->
   <link href="../carpetaplantilla/css/sb-admin-2.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="../static/alertifyjs/css/alertify.min.css" />
+ 
+<link rel="stylesheet" href="../static/alertifyjs/css/themes/default.min.css" />
+ 
+<script src="../static/alertifyjs/alertify.min.js"></script>
 
 </head>
 
@@ -56,21 +62,16 @@
           <!-- Topbar Search -->
           <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
-             
+              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
               <div class="input-group-append">
+                <button class="btn btn-primary" type="button">
                 
-                
-          
+                  <i class="fas fa-search fa-sm"></i>
+                 
+                  
+                </button>
                  &nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="regCaso1.jsp" class="btn btn-primary btn-icon-split">
-                                        <span class="icon text-white-50">
-                                            <i class="fas fa-flag"></i>
-                                        </span>
-                                        <span class="text">Registrar Caso</span>
-                                    </a>
-                                    
-                                             &nbsp;&nbsp;&nbsp;&nbsp;
-                                                    <a href="inicioAbogado.jsp" class="btn btn-primary btn-icon-split">
+                <a href="inicioAbogado.jsp" class="btn btn-primary btn-icon-split">
                                         <span class="icon text-white-50">
                                             <i class="fas fa-flag"></i>
                                         </span>
@@ -131,6 +132,7 @@
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Cerrar Sesión
                 </a>
+                
               </div>
             </li>
 
@@ -140,10 +142,10 @@
     </div>
 
 
-       
 
-            
-             <div class="container-fluid" style="background-image: url(https://www.publicdomainpictures.net/pictures/280000/velka/gradient-yellow-to-blue-background.jpg);"><br>
+
+
+<div class="container-fluid" style="background-image: url(https://www.publicdomainpictures.net/pictures/280000/velka/gradient-yellow-to-blue-background.jpg);"><br>
 
           <!-- Page Heading -->
 
@@ -202,14 +204,14 @@
             </div>
           </div><br>
       </div>
-            
-</div><br><br><br>
-<br><br><br>
-<br><br><br>
-<br><br><br>
- <br>
 
-</div>
+       
+       
+       
+       
+       
+       
+       
       <!-- End of Main Content -->
 
       <!-- Footer -->
@@ -245,7 +247,27 @@
 
   <!-- Custom scripts for all pages-->
   <script src="../carpetaplantilla/js/sb-admin-2.min.js"></script>
+  
+  
+  
+  
+  
 
 </body>
+
+<c:set var="msg" value="${abogadoA}"/>
+  
+    	<c:if test="${msg==1}">
+	
+	<script type="text/javascript">
+	
+	alertify.notify('Registro Exitoso', 'success', 5, function(){  console.log('dismissed'); });
+
+	</script>
+	<% session.setAttribute("abogadoA", null); %>
+	 
+		
+	
+	</c:if>
 
 </html>
