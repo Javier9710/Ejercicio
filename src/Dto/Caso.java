@@ -27,6 +27,7 @@ public class Caso implements Serializable {
 	private String info;
 	private String importancia;
 	private String fecha;
+	private String estado;
 
 	// abogado
 	@ManyToOne
@@ -39,10 +40,32 @@ public class Caso implements Serializable {
 	private String cedulaC;
 	private String correoC;
 	private String telC;
+	private String dir;
 
 	public Caso() {
 
 	}
+
+	
+	public String getDir() {
+		return dir;
+	}
+
+
+	public void setDir(String dir) {
+		this.dir = dir;
+	}
+
+
+	public String getEstado() {
+		return estado;
+	}
+
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+
 
 	public String getFecha() {
 		return fecha;

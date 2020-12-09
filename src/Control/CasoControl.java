@@ -8,11 +8,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Dao.CasoDao;
+import Dto.Abogado;
+import Dto.Caso;
+import Dto.Persona;
 
 /**
  * Servlet implementation class CasoDao
  */
-@WebServlet("/CasoDao")
+@WebServlet("/CasoControl")
 public class CasoControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -29,7 +32,65 @@ public class CasoControl extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		String accion = request.getParameter("accion");
+		switch (accion) {
+		
+		case "registro":
+			Caso c = new Caso();
+			CasoDao cd = new CasoDao();
+			
+			//parametros caso
+			String nombreCaso = request.getParameter("nombreCaso");
+			String informacion = request.getParameter("informacion");
+			String fecha = request.getParameter("fecha");
+			String tipo = request.getParameter("tipo");
+			
+			//cliente
+			String nombreC = request.getParameter("nombreC");
+			String cedula = request.getParameter("cedula");
+			String correo = request.getParameter("correo");
+			String telefono = request.getParameter("telefono");
+			String direccion = request.getParameter("direccion");
+			
+			//abogado
+			String id = request.getParameter("id");
+			Abogado a = new Abogado();
+			Persona p =  new Persona();
+			p.setCedula(id);
+			a.setPersona(p);
+			
+			
+			
+			//intancia
+			c.setNombreCaso(nombreCaso);
+			c.setInfo(informacion);
+			c.setFecha(fecha);
+			c.setTipoCaso(tipo);
+			
+			c.setNombreC(nombreC);
+			c.setCedulaC(cedula);
+			c.setCorreoC(correo);
+			c.setTelC(telefono);
+			c.setDir(direccion);
+			c.setEstado("INCONCLUSO");
+			
+			c.setAbogado(a);
+			
+			cd.registrar(c);
+			
+			response.sendRedirect("WebApp/regCaso1.jsp");
+
+			break;
+			
+			
+		case "listar":
+			
+			CasoDao AD = new CasoDao();
+			response.sendRedirect("WebApp/listarCaso.jsp");
+			break;
+		
+		}
 	}
 
 	/**
@@ -37,16 +98,7 @@ public class CasoControl extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String accion = request.getParameter("accion");
-		switch (accion) {
-		case "listar":
-			
-			CasoDao AD = new CasoDao();
-			response.sendRedirect("WebApp/listarServicio.jsp");
-			
-			break;
 		
-		}
 		
 		
 	}

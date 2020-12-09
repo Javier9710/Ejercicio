@@ -86,15 +86,18 @@ public class AbogadoControl extends HttpServlet {
 		case "ingreso":
 			Persona p1 = new Persona();
 			AbogadoDao pD3 = new AbogadoDao();
+			Abogado a1=new Abogado();
 			String cedula1 = request.getParameter("cedula");
 			String pass1 = request.getParameter("pass");
-			p1 = pD3.validar(cedula1, pass1);
+			a1= pD3.validar(cedula1, pass1);
+			System.out.print(".------ "+a1);
 			CasoDao AD = new CasoDao();
 			
-			if(p1!=null) {
+			if(a1!=null) {
 				
 				HttpSession sesion = request.getSession();
-				sesion.setAttribute("abogado", p1);
+				sesion.setAttribute("abogado", a1);
+				
 				response.sendRedirect("WebApp/inicioAbogado.jsp");
 			}
 			break;

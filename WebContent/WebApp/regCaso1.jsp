@@ -14,7 +14,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Casos</title>
+  <title>Registro Caso</title>
 
   <!-- Custom fonts for this template-->
   <link href="../carpetaplantilla/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -65,11 +65,11 @@
                   
                 </button>
                  &nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="regCaso1.jsp" class="btn btn-primary btn-icon-split">
+                <a href="inicioAbogado.jsp" class="btn btn-primary btn-icon-split">
                                         <span class="icon text-white-50">
                                             <i class="fas fa-flag"></i>
                                         </span>
-                                        <span class="text">Registrar Caso</span>
+                                        <span class="text">Mis Casos</span>
                                     </a>
                 
                 
@@ -126,6 +126,7 @@
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Cerrar Sesión
                 </a>
+                
               </div>
             </li>
 
@@ -136,59 +137,89 @@
 
 
        
-       <div class="container-fluid" style="background-image: url(https://www.publicdomainpictures.net/pictures/280000/velka/gradient-yellow-to-blue-background.jpg); height: 100%;" ><br>
-        <div class="card shadow mb-4">
-            <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary" style="font-size: 26px;">BIENVENIDO </h6> 
-              <h6 class="m-0 font-weight-bold text-primary">Listado de Casos</h6>
-            </div>
-            <div class="card-body">
-              <div class="table-responsive">
+        <div class="container-fluid" style="background-image: url(https://www.publicdomainpictures.net/pictures/280000/velka/gradient-yellow-to-blue-background.jpg);"><br>
 
-                <jsp:useBean id="AD" class="Dao.CasoDao" scope="request"></jsp:useBean>
+          <!-- Page Heading -->
 
-                <div class="card-deck">
-                  <c:forEach var="d" items="${AD.listar(abogado.persona.cedula)}">
-                  <div class="card border-primary mb-3" style="max-width: 18rem;">
-                      <div class="card-header" ><c:out value="${d.id}"/></div>
-                      <div class="card-body">
-                        <h5 class="card-title"><c:out value="${d.importancia}"/></h5>
-                        <p class="card-text"><c:out value="${d.correoC}"/></p>
-                        <p class="card-text"><c:out value="${d.fecha}"/></p>
-                        <p class="card-text"><c:out value="${d.cedulaC}"/></p>
-                        <p class="card-text"><b>Cliente:</b> <c:out value="${d.nombreC}"/></p>
+          <div class="row justify-content-center align-self-center" >
 
-             
-              <form action="../AtenderControl" method="get">
-                       <input type="hidden" name="ids" value="${d.id}">
-                        <div class="form-group row">
-                       <div class="col-sm-12">
-                      <button type="submit" name="accion" value="atenderS" 
-                        class="btn btn-primary btn-lg">Atender</button>
-                        <button type="submit" name="accion" value="historial" 
-                  class="btn btn-primary ">Ver Historial</button>
+            <div class="col col-sm-9 col-md-9 col-lg-6 col-xl-6 h-100" style="background-color: #a7c0cd;" style="border-radius: 20px;">
+            
+            <form method="get" action="../CasoControl" enctype="multipart/form-data">
+                  
+               <legend class="text-center header" style="color: black;">Registrar Caso</legend>
 
-                
-              </div>
-            </div>
-            </form>
-        
-
-                     </div>
-                    </div>
-
-                    
-                </c:forEach>
+                <div class="form-group">
+                    <input _ngcontent-c0="" class="form-control" name="nombreCaso" placeholder="Nombre Caso" type="text" required>
                 </div>
-      </div>
-  </div>
-</div><br><br><br>
-<br><br><br>
-<br><br><br>
-<br><br><br>
- <br>
 
-</div>
+                <div class="form-group">
+                    <input _ngcontent-c0="" class="form-control" name="nombreC" placeholder="Nombre Cliente" type="text" required>
+                </div>
+                
+                 <div class="form-group">
+                    <input _ngcontent-c0="" class="form-control" name="cedula" placeholder="Cedula Cliente" type="text" required>
+                </div>
+                
+                <div class="form-group">
+                    <input _ngcontent-c0="" class="form-control" name="correo" placeholder="Correo Cliente" type="text" required>
+                </div>
+                
+                <div class="form-group">
+                    <input _ngcontent-c0="" class="form-control" name="telefono" placeholder="Telefono Cliente" type="text" required>
+                </div>
+                
+                <div class="form-group">
+                    <input _ngcontent-c0="" class="form-control" name="direccion" placeholder="Direccion Cliente" type="text" required>
+                </div>
+                
+                <div class="form-group">
+                    <select class="form-control" name="tipo" >
+                      <option>Tipo Caso</option>
+                      <option value="Civil">Civil</option>
+                      <option value="Penal">Penal</option>
+                      <option value="Familiar">Familiar</option>
+                      <option value="Laboral">Laboral</option>
+                      <option value="Administrativo">Administrativo</option>
+                      <option value="Disciplinario">Disciplinario</option>
+                      <option value="Militar">Militar</option>
+                   </select>
+                </div>
+                
+                <div class="form-row">
+            
+                   <div class="col">
+                    <label  class="" style="color: black;">Fecha del Caso:</label>
+                       <input type="date" class="form-control" placeholder="First name" name="fecha">
+                   </div>
+                </div><br>
+
+                <div class="form-group">
+                    <textarea _ngcontent-c0="" class="form-control" name="informacion" placeholder="Descripcion" type="text" required></textarea>
+                </div>
+                
+                                <div class="form-group">
+                    <select class="form-control" name="importancia" >
+                      <option>Importancia</option>
+                      <option value="Alto">Alto</option>
+                      <option value="Medio">Medio</option>
+                      <option value="Bajo">Bajo</option>
+                   </select>
+                </div>
+                
+                <input type="hidden" name="id" value="<c:out value="${abogado.persona.cedula}"></c:out>">
+                
+                <div class="form-group">
+                  <div class="col-md-12 text-center">
+                    <button  type="submit" name="accion" value="registro"  style="width: 40%;" class="btn btn-primary" >Registrar Caso</button>
+                  </div>
+                </div>
+                
+                </form>
+              
+            </div>
+          </div><br>
+      </div>
       <!-- End of Main Content -->
 
       <!-- Footer -->

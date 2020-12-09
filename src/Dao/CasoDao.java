@@ -23,6 +23,12 @@ public class CasoDao {
 		
 	}
 	
+	public List<Caso> listar(String cedula){
+		
+		return (List<Caso>) em.createQuery("SELECT DISTINCT s from Caso s, Abogado a where s.abogado= '"+cedula+"'  ").getResultList();	
+		
+	}
+	
 
 	public void registrar(Caso caso) {
 		try {

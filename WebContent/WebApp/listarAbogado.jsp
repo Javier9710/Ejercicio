@@ -194,7 +194,7 @@
           
           <div class="card-deck">
             <c:forEach var="p" items="${pD.listar1()}">
-  <div class="card">
+  <div class="card border-primary mb-3" style="max-width: 18rem;">
     <img  src="https://raw.githubusercontent.com/Javier9710/Ejercicio/master/img/<c:out value="${p.foto}"/>" class="card-img-top" width="100" height="300" alt="Card image cap" >
     
     <div class="card-body">

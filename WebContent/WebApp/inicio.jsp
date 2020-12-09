@@ -40,7 +40,8 @@
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="inicio.jsp">
-        <div class="sidebar-brand-icon rotate-n-15">
+        <div class="" >
+       <img alt="" src="">
           <i class="fas fa-file"></i>
         </div>
         <div class="sidebar-brand-text mx-3">Abogados AyD</div>
@@ -169,7 +170,7 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
-                <img class="img-profile rounded-circle" src="https://toppng.com/uploads/preview/user-font-awesome-nuevo-usuario-icono-11563566658mjtfvilgcs.png" >
+                <img class="img-profile rounded-circle" src="https://www.serviciosayd.com/wp-content/uploads/2017/05/logo2-08.png" >
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -187,10 +188,10 @@
     </div>
 
 
-   <!-- 
-       <div class="container-fluid" style="background-image: url(https://www.publicdomainpictures.net/pictures/280000/velka/gradient-yellow-to-blue-background.jpg ); height: 100%;" ><br>
-
-	<div class="card shadow mb-4">
+   
+   
+   <div class="container-fluid" style="background-image: url(https://www.publicdomainpictures.net/pictures/280000/velka/gradient-yellow-to-blue-background.jpg); height: 100%;" ><br>
+        <div class="card shadow mb-4">
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary" style="font-size: 26px;">BIENVENIDO </h6> 
               <h6 class="m-0 font-weight-bold text-primary">Listado de Casos</h6>
@@ -198,17 +199,34 @@
             <div class="card-body">
               <div class="table-responsive">
 
-              	<jsp:useBean id="AD" class="Dao.CasoDao" scope="request"></jsp:useBean>
+                <jsp:useBean id="AD" class="Dao.CasoDao" scope="request"></jsp:useBean>
 
-              	<div class="card-deck">
-              		<c:forEach var="s" items="${AD.listar1()}">
-              		<div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-                      <div class="card-header bg-primary" ><c:out value="${s.id}"/></div>
+                <div class="card-deck">
+                  <c:forEach var="d" items="${AD.listar1()}">
+                  <div class="card border-primary mb-3" style="max-width: 18rem;">
+                      <div class="card-header" ><c:out value="${d.id}"/></div>
                       <div class="card-body">
-                        <h5 class="card-title"><c:out value="${s.cedulaC}"/></h5>
-                        <p class="card-text"><c:out value="${s.correoC}"/></p>
-                        <p class="card-text"><c:out value="${s.fecha}"/><b>  -  </b><c:out value="${s.fechaFin}"/></p>
-                        <p class="card-text"><b><c:out value="${s.info}"/></b></p>
+                        <h5 class="card-title"><c:out value="${d.importancia}"/></h5>
+                        <p class="card-text"><c:out value="${d.correoC}"/></p>
+                        <p class="card-text"><c:out value="${d.fecha}"/></p>
+                        <p class="card-text"><c:out value="${d.cedulaC}"/></p>
+                        <p class="card-text"><b>Cliente:</b> <c:out value="${d.nombreC}"/></p>
+
+             
+              <form action="../AtenderControl" method="get">
+                       <input type="hidden" name="ids" value="${d.id}">
+                        <div class="form-group row">
+                       <div class="col-sm-12">
+                      <button type="submit" name="accion" value="atenderS" 
+                        class="btn btn-primary btn-lg">Atender</button>
+                        <button type="submit" name="accion" value="historial" 
+                  class="btn btn-primary ">Ver Historial</button>
+
+                
+              </div>
+            </div>
+            </form>
+        
 
                      </div>
                     </div>
@@ -218,8 +236,16 @@
                 </div>
       </div>
   </div>
+</div><br><br><br>
+<br><br><br>
+<br><br><br>
+<br><br><br>
+ <br>
+
 </div>
-</div>  -->
+
+
+
 
       <!-- End of Main Content -->
 
