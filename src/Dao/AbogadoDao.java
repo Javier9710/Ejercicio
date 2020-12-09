@@ -26,7 +26,7 @@ public class AbogadoDao {
 	public Abogado validar(String cedula1, String pass1) {
 		Abogado a = new Abogado();
 		Persona p = new Persona();
-		 Query nativeQuery = em.createNativeQuery("SELECT p.cedula,a.foto,p.nombre FROM  Abogado a, Persona p "
+		 Query nativeQuery = em.createNativeQuery("SELECT p.cedula,a.foto,p.nombre,p.correo, a.especializacion,a.pass,a.estado FROM  Abogado a, Persona p "
 		 		                                 + "WHERE p.cedula =? "
 		 		                                 + "and p.cedula=a.persona "
 		 		                                 + "and a.pass=?");
@@ -36,6 +36,11 @@ public class AbogadoDao {
 	        
 	        p.setCedula((String) result[0]);
 	        p.setNombre((String) result[2]);
+	        p.setCorreo((String) result[3]);
+	        a.setEspecializacion((String) result[4]);
+	        //a.setFoto((String) result[5]);
+	        a.setPass((String) result[5]);
+	        a.setEstado((String) result[6]);
 	        a.setPersona(p);
 	        a.setFoto((String) result[1]);
 	        //a.setCorreo((String) result[2]);
@@ -44,6 +49,13 @@ public class AbogadoDao {
 	       
 	
 		return a;
+	}
+	
+	public void Actualizar1(String pass, String cedula) {
+		Query nativeQuery=em.createNativeQuery("UPDATE abogado SET pass = ? WHERE persona = ?");
+		nativeQuery.setParameter(1, pass);
+        nativeQuery.setParameter(2, cedula);
+		
 	}
 	
 	public List<Abogado> listar() {
@@ -153,7 +165,7 @@ public class AbogadoDao {
 		
 
 		String[] parts = url.split("\\\\");
-		String part1 = parts[5];
+		String part1 = parts[0];
 		System.out.print(part1);
 		   
 		

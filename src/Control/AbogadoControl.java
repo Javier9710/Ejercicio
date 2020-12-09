@@ -102,6 +102,44 @@ public class AbogadoControl extends HttpServlet {
 			}
 			break;
 			
+		case "actualizar":
+			
+			Persona pa = new Persona();
+			PersonaDao pda = new PersonaDao();
+			Abogado aa = new Abogado();
+			AbogadoDao ada = new AbogadoDao();
+			
+			String cedulaa = request.getParameter("cedula");
+			String nombrea = request.getParameter("nombre");
+			String correoa = request.getParameter("correo");
+			String especializaciona = request.getParameter("especializacion");
+			String passa = request.getParameter("pass");
+			String estadoa = request.getParameter("estado");
+			String fotoa = request.getParameter("foto");
+
+			pa.setCedula(cedulaa);
+			pa.setNombre(nombrea);
+			pa.setCorreo(correoa);
+			
+			aa.setEspecializacion(especializaciona);
+			aa.setPass(passa);
+			aa.setEstado(estadoa);
+			aa.setFoto(fotoa);
+			aa.setPersona(pa);
+			
+			pda.actualizar(pa);
+			ada.actualizar(aa);
+			
+			HttpSession sesion = request.getSession();
+			sesion.setAttribute("abogado", aa);
+			
+			response.sendRedirect("WebApp/misDatos.jsp");
+			
+			
+			
+			
+			break;
+			
 
 		}
 	}

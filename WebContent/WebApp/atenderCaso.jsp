@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +14,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Servicios</title>
+  <title>Mis Datos</title>
 
   <!-- Custom fonts for this template-->
   <link href="../carpetaplantilla/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -26,6 +27,9 @@
 </head>
 
 <body id="page-top">
+
+
+
 
   <!-- Page Wrapper -->
   <div id="wrapper">
@@ -52,12 +56,32 @@
           <!-- Topbar Search -->
           <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
-              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+             
               <div class="input-group-append">
-                <button class="btn btn-primary" type="button">
-                  <i class="fas fa-search fa-sm"></i>
-                </button>
+                
+                
+          
+                 &nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="regCaso1.jsp" class="btn btn-primary btn-icon-split">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-flag"></i>
+                                        </span>
+                                        <span class="text">Registrar Caso</span>
+                                    </a>
+                                    
+                                             &nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <a href="inicioAbogado.jsp" class="btn btn-primary btn-icon-split">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-flag"></i>
+                                        </span>
+                                        <span class="text">Mis Casos</span>
+                                    </a>
+                
+                
+                
               </div>
+              
+              
             </div>
           </form>
 
@@ -92,13 +116,18 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Empleado</span>
-                <img class="img-profile rounded-circle" src="https://toppng.com/uploads/preview/user-font-awesome-nuevo-usuario-icono-11563566658mjtfvilgcs.png" >
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><c:out value="${abogado.persona.nombre}"></c:out></span>
+                <img class="img-profile rounded-circle" src="https://raw.githubusercontent.com/Javier9710/Ejercicio/master/img/<c:out value="${abogado.foto}"></c:out>" >
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                 
-                <a class="dropdown-item" href="#" >
+                <a class="dropdown-item" href="misDatos.jsp" >
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Mis Datos
+                </a>
+                
+                <a class="dropdown-item" href="../AccesoControl?accion=cerrar" >
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Cerrar Sesión
                 </a>
@@ -115,30 +144,17 @@
        <div class="container-fluid" style="background-image: url(https://www.publicdomainpictures.net/pictures/280000/velka/gradient-yellow-to-blue-background.jpg); height: 100%;" ><br><br>
          <div class="row justify-content-center align-self-center" >
 
-            <div class="col col-sm-9 col-md-9 col-lg-6 col-xl-6 h-100" style="background-color: #a7c0cd
-
-;" style="border-radius: 20px;">
+            <div class="col col-sm-9 col-md-9 col-lg-6 col-xl-6 h-100" style="background-color: #a7c0cd;" style="border-radius: 20px;">
               
                 <form method="get" action="../AtenderControl" enctype="multipart/form-data">
                   
-               <legend class="text-center header" style="color: black;">Atender Servicio</legend>
+               <legend class="text-center header" style="color: black;">Atender Caso</legend>
                
-               <div class="form-group">
-                    <input _ngcontent-c0="" class="form-control" name="id" placeholder="Id Atencion" type="text" required>
-                </div>
 
                 <div class="form-group">
                     <input _ngcontent-c0="" class="form-control" name="nombre" placeholder="Nombre Atencion" type="text" required>
                 </div>
                
-               <div class="form-group">
-                    <select class="form-control" name="tipo" >
-                      <option>Tipo</option>
-                      <option value="1">Virtual</option>
-                      <option value="2">Presencial</option>
-                      
-                   </select>
-                </div>
 
                 <div class="form-row">
             
@@ -155,16 +171,22 @@
                 <div class="form-group">
                     <textarea _ngcontent-c0="" class="form-control" name="descripcion" placeholder="Descripcion" type="text" required></textarea>
                 </div>
+                
+   <div class="input-file-container">  
+   <input class="input-file"  id="my-file" type="file" name="documentos">
+   <label tabindex="0" for="my-file" class="input-file-trigger">Documentos</label>
+  </div>
+  <p class="file-return"></p>
 
 
                  <div class="form-group">
                   <div class="col-md-12 text-center">
-                    <button  type="submit" value="atenderServicio" name="accion" style="width: 40%;" class="btn btn-primary" >Atender</button>
+                    <button  type="submit" value="atenderCaso" name="accion" style="width: 40%;" class="btn btn-primary" >Atender</button>
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="col-md-12 text-center">
-                    <a href="inicioEmpleado.jsp"> <-Volver al inicio</a>
+                    <a href="inicioAbogado.jsp"> <-Volver al inicio</a>
                   </div>
                 </div>
                
@@ -174,6 +196,14 @@
           </div><br><br>
           <br><br>
           <br><br>
+
+</div>
+     
+</div><br><br><br>
+<br><br><br>
+<br><br><br>
+<br><br><br>
+ <br>
 
 </div>
       <!-- End of Main Content -->
@@ -215,3 +245,4 @@
 </body>
 
 </html>
+     

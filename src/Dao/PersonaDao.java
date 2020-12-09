@@ -81,6 +81,15 @@ public class PersonaDao {
 		return (List<Persona>) em.createQuery("SELECT p from Persona p, Abogado a Where p.cedula=a.persona").getResultList();	
 		
 	}
+	
+	
+	public void Actualizar1(String Correo, String cedula) {
+		Query nativeQuery=em.createNativeQuery("UPDATE persona SET correo = ? WHERE cedula = ?");
+		nativeQuery.setParameter(1, Correo);
+        nativeQuery.setParameter(2, cedula);
+		
+	}
+	
 
 	
 

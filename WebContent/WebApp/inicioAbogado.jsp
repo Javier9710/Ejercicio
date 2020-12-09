@@ -150,20 +150,22 @@
                 <div class="card-deck">
                   <c:forEach var="d" items="${AD.listar(abogado.persona.cedula)}">
                   <div class="card border-primary mb-3" style="max-width: 18rem;">
-                      <div class="card-header" ><c:out value="${d.id}"/></div>
+                      <div class="card-header" >Cliente: <c:out value="${d.nombreC}"/></div>
                       <div class="card-body">
-                        <h5 class="card-title"><c:out value="${d.importancia}"/></h5>
-                        <p class="card-text"><c:out value="${d.correoC}"/></p>
-                        <p class="card-text"><c:out value="${d.fecha}"/></p>
-                        <p class="card-text"><c:out value="${d.cedulaC}"/></p>
-                        <p class="card-text"><b>Cliente:</b> <c:out value="${d.nombreC}"/></p>
+                        <h5 class="card-title">Nombre Caso: <c:out value="${d.nombreCaso}"/></h5>
+                        <p class="card-text">Cedula Cliente: <c:out value="${d.cedulaC}"/></p>
+                        <p class="card-text">Telefono: <c:out value="${d.telC}"/></p>
+                        <p class="card-text">Fecha Caso: <c:out value="${d.fecha}"/></p>
+                        <p class="card-text">Tipo: <c:out value="${d.tipoCaso}"/></p>
+                        <p class="card-text">Importancia: <c:out value="${d.importancia}"/></p>
+                        <p class="card-text">Estado: <c:out value="${d.estado}"/></p>
 
              
               <form action="../AtenderControl" method="get">
                        <input type="hidden" name="ids" value="${d.id}">
                         <div class="form-group row">
                        <div class="col-sm-12">
-                      <button type="submit" name="accion" value="atenderS" 
+                      <button type="submit" name="accion" value="atenderC" 
                         class="btn btn-primary btn-lg">Atender</button>
                         <button type="submit" name="accion" value="historial" 
                   class="btn btn-primary ">Ver Historial</button>

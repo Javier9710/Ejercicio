@@ -45,6 +45,7 @@ public class CasoControl extends HttpServlet {
 			String informacion = request.getParameter("informacion");
 			String fecha = request.getParameter("fecha");
 			String tipo = request.getParameter("tipo");
+			String impor = request.getParameter("importancia");
 			
 			//cliente
 			String nombreC = request.getParameter("nombreC");
@@ -58,6 +59,7 @@ public class CasoControl extends HttpServlet {
 			Abogado a = new Abogado();
 			Persona p =  new Persona();
 			p.setCedula(id);
+			a.setEstado("OCUPADO");
 			a.setPersona(p);
 			
 			
@@ -74,6 +76,7 @@ public class CasoControl extends HttpServlet {
 			c.setTelC(telefono);
 			c.setDir(direccion);
 			c.setEstado("INCONCLUSO");
+			c.setImportancia(impor);
 			
 			c.setAbogado(a);
 			

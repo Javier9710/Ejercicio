@@ -40,11 +40,10 @@
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="inicio.jsp">
-        <div class="" >
-       <img alt="" src="https://raw.githubusercontent.com/Javier9710/Ejercicio/master/img/logo1.png">
+        <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-file"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Abogados AyD</div>
+        <div class="sidebar-brand-text mx-3">ABOGADOS WEB</div>
       </a>
 
       <!-- Divider -->
@@ -81,20 +80,7 @@
         </div>
       </li>
 
-      <!-- Nav Item - Utilities Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-          <i class="fas fa-fw fa-file"></i>
-          <span>Servicio</span>
-        </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="regSercivio.jsp">Registrar Servicio</a>
-            <a class="collapse-item" href="../ServicioControl?accion=listar">Listar Servicios</a>
-            
-          </div>
-        </div>
-      </li>
+
 
      
 
@@ -217,8 +203,6 @@
                        <input type="hidden" name="ids" value="${d.id}">
                         <div class="form-group row">
                        <div class="col-sm-12">
-                      <button type="submit" name="accion" value="atenderS" 
-                        class="btn btn-primary btn-lg">Atender</button>
                         <button type="submit" name="accion" value="historial" 
                   class="btn btn-primary ">Ver Historial</button>
 
