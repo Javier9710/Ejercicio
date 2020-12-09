@@ -213,7 +213,7 @@
                       <option value="Penal">Penal</option>
                       <option value="Fiscal">Fiscal</option>
                       <option value="Familiar">Familiar</option>
-                      <option value="Laboral">Laborar</option>
+                      <option value="Laboral">Laboral</option>
                       <option value="Mercantil">Mercantil</option>
                       <option value="Sin Especialidad">Sin Especialidad</option>
                    </select>

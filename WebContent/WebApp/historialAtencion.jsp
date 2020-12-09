@@ -14,7 +14,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Atenciones</title>
+  <title>Mis Datos</title>
 
   <!-- Custom fonts for this template-->
   <link href="../carpetaplantilla/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -27,6 +27,9 @@
 </head>
 
 <body id="page-top">
+
+
+
 
   <!-- Page Wrapper -->
   <div id="wrapper">
@@ -53,12 +56,32 @@
           <!-- Topbar Search -->
           <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
-              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+             
               <div class="input-group-append">
-                <button class="btn btn-primary" type="button">
-                  <i class="fas fa-search fa-sm"></i>
-                </button>
+                
+                
+          
+                 &nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="regCaso1.jsp" class="btn btn-primary btn-icon-split">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-flag"></i>
+                                        </span>
+                                        <span class="text">Registrar Caso</span>
+                                    </a>
+                                    
+                                             &nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <a href="inicioAbogado.jsp" class="btn btn-primary btn-icon-split">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-flag"></i>
+                                        </span>
+                                        <span class="text">Mis Casos</span>
+                                    </a>
+                
+                
+                
               </div>
+              
+              
             </div>
           </form>
 
@@ -93,11 +116,16 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Empleado</span>
-                <img class="img-profile rounded-circle" src="https://toppng.com/uploads/preview/user-font-awesome-nuevo-usuario-icono-11563566658mjtfvilgcs.png" >
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><c:out value="${abogado.persona.nombre}"></c:out></span>
+                <img class="img-profile rounded-circle" src="https://raw.githubusercontent.com/Javier9710/Ejercicio/master/img/<c:out value="${abogado.foto}"></c:out>" >
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                
+                <a class="dropdown-item" href="misDatos.jsp" >
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Mis Datos
+                </a>
                 
                 <a class="dropdown-item" href="../AccesoControl?accion=cerrar" >
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -122,16 +150,17 @@
             <div class="card-body">
               <div class="table-responsive">
 
-                <jsp:useBean id="AD" class="Dao.AtencionServicioDao" scope="request"></jsp:useBean>
+                <jsp:useBean id="AD" class="Dao.AtencionDao" scope="request"></jsp:useBean>
 
                 <div class="card-deck">
-                  <c:forEach var="d" items="${AD.listar1()}">
+                  <c:forEach var="d" items="${AD.listar(var)}">
                   <div class="card border-primary mb-3" style="max-width: 18rem;">
-                      <div class="card-header" >Tipo: <c:out value="${d.atender.tipo}"/></div>
+                      <div class="card-header" >Titulo: <c:out value="${d.titulo}"/></div>
                       <div class="card-body">
-                        <h5 class="card-title">Titulo: <c:out value="${d.atender.titulo}"/></h5>
-                        <p class="card-text">IdServico: <c:out value="${d.id}"/></p>
-                        <p class="card-text">Descripcion: <c:out value="${d.atender.descripcion}"/></p>
+                        <p class="card-text">Hora: <c:out value="${d.hora}"/></p>
+                        <p class="card-text">Fecha: <c:out value="${d.fecha}"/></p>
+                        <h5 class="card-title">Descripcion: <c:out value="${d.descripcion}"/></h5>
+
 
                      </div>
                     </div>

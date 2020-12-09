@@ -2,6 +2,7 @@ package Dto;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,6 +28,7 @@ public class Atencion implements Serializable{
 	private String fecha;
 	private String hora;
 	private String titulo;
+	@Column(length=1000)
 	private String descripcion;
 	
 	

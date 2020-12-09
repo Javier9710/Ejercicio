@@ -6,6 +6,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import Dao.AtencionDao;
+import Dao.CasoDao;
+import Dto.Atencion;
+import Dto.Caso;
 
 /**
  * Servlet implementation class AtenderControl
@@ -39,6 +45,39 @@ public class AtenderControl extends HttpServlet {
 			break;
 			
 		case "atenderCaso":
+			
+			Atencion a = new Atencion();
+			AtencionDao ad = new AtencionDao();
+			Caso c = new Caso();
+
+			
+			String titulo = request.getParameter("titulo");
+			String hora = request.getParameter("hora");
+			String fecha = request.getParameter("fecha");
+			String descripcion = request.getParameter("descripcion");
+			c.setId(var);
+			
+			a.setTitulo(titulo);
+			a.setHora(hora);
+			a.setFecha(fecha);
+			a.setDescripcion(descripcion);
+			a.setCaso(c);
+			
+			ad.registrar(a);
+			
+			response.sendRedirect("WebApp/atenderCaso.jsp");
+			
+			break;
+			
+		case "historial":
+			var = Integer.parseInt(request.getParameter("ids"));			
+			HttpSession sesion2 = request.getSession();
+			sesion2.setAttribute("var", var);
+			response.sendRedirect("WebApp/historialAtencion.jsp");
+			
+			break;
+			
+			
 
 		}
 	}

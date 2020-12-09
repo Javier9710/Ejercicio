@@ -152,9 +152,8 @@
                
 
                 <div class="form-group">
-                    <input _ngcontent-c0="" class="form-control" name="nombre" placeholder="Nombre Atencion" type="text" required>
+                    <input _ngcontent-c0="" class="form-control" name="titulo" placeholder="Titulo Atencion" type="text" required>
                 </div>
-               
 
                 <div class="form-row">
             
