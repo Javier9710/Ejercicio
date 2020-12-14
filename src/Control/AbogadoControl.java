@@ -155,6 +155,12 @@ public class AbogadoControl extends HttpServlet {
 			
 			break;
 			
+		case "cerrar":
+			HttpSession session = request.getSession();
+			session.invalidate();
+			response.sendRedirect("../abogadosAyD/WebApp/loginAbogado.jsp");
+			break;
+			
 
 		}
 	}

@@ -34,7 +34,7 @@
 
 </head>
 
-<body class="bg-gradient-primary">
+<body background="https://i.pinimg.com/originals/66/fe/3f/66fe3fb9d3f51c1a781d45a32ab39935.jpg">
 
     <div class="container">
 
@@ -49,7 +49,7 @@
                         <div class="row">
                             <div class="col-lg-6 d-none d-lg-block ">
                             <img alt="" src="https://www.unir.net/wp-content/uploads/2018/09/675876832.jpg"  width="500"
-     height="450">
+     height="550">
                             
                             </div>
                             
@@ -82,6 +82,16 @@
                                             Ingresar Como Administrador
                                         </a>
                                    </div>
+                                   
+                                     <hr>
+                                  
+                                  <a href="index.html" class="btn btn-google btn-user btn-block">
+                                            <i class="fab fa-google fa-fw"></i> Login with Google
+                                        </a>
+                                        
+                                        <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                                            <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
+                                        </a>
                                    
              
                                 </div>

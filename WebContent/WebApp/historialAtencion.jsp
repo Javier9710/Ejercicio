@@ -3,6 +3,14 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+  <c:set var="msg1" value="${abogado}"/>
+ 
+    	<c:if test="${msg1==null}">
+
+	<% response.sendRedirect("loginAbogado.jsp"); %>
+
+	</c:if>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -127,7 +135,7 @@
                   Mis Datos
                 </a>
                 
-                <a class="dropdown-item" href="../AccesoControl?accion=cerrar" >
+                <a class="dropdown-item" href="../AbogadoControl?accion=cerrar" >
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Cerrar Sesión
                 </a>
@@ -214,6 +222,14 @@
   <script src="../carpetaplantilla/js/sb-admin-2.min.js"></script>
 
 </body>
-
-<script type='text/javascript'> (function() { if( window.localStorage ) { if( !localStorage.getItem('firstLoad') ) { localStorage['firstLoad'] = true; window.location.reload(); } else localStorage.removeItem('firstLoad'); } })(); </script> 
+<script type='text/javascript'> 
+(function() { 
+	if( window.localStorage ) { 
+		if( !localStorage.getItem('7') ) { 
+			localStorage['7'] = true; 
+			window.location.reload(); 
+		} else 
+			localStorage.removeItem('7'); 
+		
+	} })(); </script> 
 </html>
