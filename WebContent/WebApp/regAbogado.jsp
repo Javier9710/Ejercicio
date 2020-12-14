@@ -2,6 +2,14 @@
     pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+  <c:set var="msg1" value="${persona}"/>
+ 
+    	<c:if test="${msg1==null}">
+
+	<% response.sendRedirect("../index.jsp"); %>
+
+	</c:if>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -289,5 +297,7 @@
 		
 	
 	</c:if>
+	
+	<script type='text/javascript'> (function() { if( window.localStorage ) { if( !localStorage.getItem('2') ) { localStorage['2'] = true; window.location.reload(); } else localStorage.removeItem('2'); } })(); </script> 
 
 </html>

@@ -1,7 +1,10 @@
+<%@page import="org.apache.catalina.ha.backend.Sender"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
      pageEncoding="ISO-8859-1"%> 
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +16,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    
+<meta http-equiv='cache-control' content='no-cache'>
+<meta http-equiv='expires' content='0'>
+<meta http-equiv='pragma' content='no-cache'>
 
     <title>ABOGADOS WEB</title>
 
@@ -116,6 +123,8 @@
     	<c:if test="${msg!=null}">
 	
 	<script type="text/javascript">
+	
+
 	
 	alertify.notify('Usuario o Contraseña Incorrecta', 'error', 5, function(){  console.log('dismissed'); });
 	

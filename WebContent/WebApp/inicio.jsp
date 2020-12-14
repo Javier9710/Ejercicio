@@ -5,17 +5,30 @@
     <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-   
+
+
+  <c:set var="msg1" value="${persona}"/>
+ 
+    	<c:if test="${msg1==null}">
+
+	<% response.sendRedirect("../index.jsp"); %>
+
+	</c:if>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-
+<meta http-equiv='cache-control' content='no-cache'>
+<meta http-equiv='expires' content='0'>
+<meta http-equiv='pragma' content='no-cache'>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
+  
+
 
   <title>Inicio</title>
 
@@ -30,7 +43,12 @@
 
 </head>
 
-<body id="page-top">
+<body id="page-top" >
+   
+
+
+<head>
+
 
   <!-- Page Wrapper -->
   <div id="wrapper">
@@ -185,6 +203,7 @@
 
                 <div class="card-deck">
                   <c:forEach var="d" items="${AD.listar1()}">
+
                   <div class="card border-primary mb-3" style="max-width: 18rem;">
                       <div class="card-header" >Abogado: <c:out value="${d.abogado.persona.nombre}"/></div>
                       <div class="card-body">
@@ -262,7 +281,20 @@
 
   <!-- Custom scripts for all pages-->
   <script src="../carpetaplantilla/js/sb-admin-2.min.js"></script>
+  
+ 
 
 </body>
+<script type='text/javascript'> 
+(function() { 
+	if( window.localStorage ) { 
+		if( !localStorage.getItem('1') ) { 
+			localStorage['1'] = true; 
+			window.location.reload(); 
+		} else 
+			localStorage.removeItem('1'); 
+		
+	} })(); </script> 
+ 
 
 </html>

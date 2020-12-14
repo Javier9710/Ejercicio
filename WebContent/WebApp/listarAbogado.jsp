@@ -3,6 +3,15 @@
 <%@ page import="java.util.List"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+  <c:set var="msg1" value="${persona}"/>
+ 
+    	<c:if test="${msg1==null}">
+
+	<% response.sendRedirect("../index.jsp"); %>
+
+	</c:if>
+	
 <!DOCTYPE html>
 <html lang="en">
 
@@ -248,5 +257,7 @@
   <script src="../carpetaplantilla/js/sb-admin-2.min.js"></script>
 
 </body>
+
+<script type='text/javascript'> (function() { if( window.localStorage ) { if( !localStorage.getItem('4') ) { localStorage['4'] = true; window.location.reload(); } else localStorage.removeItem('4'); } })(); </script> 
 
 </html>
